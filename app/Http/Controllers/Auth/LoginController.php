@@ -41,13 +41,22 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        try{
             $this->validate($request, [
                 'email' => 'required',
-                'password' => 'required|min:6'
+                'password' => 'required'
             ]);
 
             $remember = $request->has('remember') ? true: false;
+            if(\Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $remember)){
+                return redirect(route('account'))->with('success', trans('messages.auth.successLogin'));
+            }
+            return back()->with('error', trans('messages.auth.errorLogin'));
+            
+            
 
-
+        }catch(ValidationException $e) {
+            return back()->with('error', trans('messages.auth.errorLogin'));
+        }
     }
 }

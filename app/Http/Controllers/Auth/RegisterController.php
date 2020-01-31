@@ -44,7 +44,12 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
-        $this->validator($request->all())->validate();
+        try{
+            $this->validator($request->all())->validate();
+        }catch(\Exception $e){
+            dd('Что-то пошло не так!');
+        }
+        
         $email = $request->input('email');
         $password = $request->input('password');
         $isAuth = $request->has('remember')? true :false;

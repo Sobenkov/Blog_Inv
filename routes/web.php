@@ -10,6 +10,7 @@ Route::group(['meddleware' => 'guest'], function(){
 	Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 	Route::post('/login', 'Auth\LoginController@login');
 });
+
 //account
 Route::group(['meddleware' => 'auth'], function(){
 	Route::get('/logout', function(){
@@ -17,6 +18,9 @@ Route::group(['meddleware' => 'auth'], function(){
 		return redirect(route('login'));
 	}) ->name('logout');
 	Route::get('/my/account', 'AccountController@index')->name('account');
+
 	//admin
-	Route::get('/admin', 'Admin\AccountController@index')->name('admin');
+	Route::group(['meddleware' => 'admin'], function(){
+		Route::get('/admin', 'Admin\AccountController@index')->name('admin');
+	});
 });

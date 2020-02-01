@@ -20,11 +20,12 @@ Route::group(['meddleware' => 'auth'], function(){
 	Route::get('/my/account', 'AccountController@index')->name('account');
 
 	//admin
-	Route::group(['meddleware' => 'admin'], function(){
-		Route::get('/admin', 'Admin\AccountController@index')->name('admin');
+	Route::group(['meddleware' => 'admin', 'prefix' => 'admin'], function(){
+		Route::get('/', 'Admin\AccountController@index')->name('admin');
 
 		Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
 		Route::get('/categories/add', 'Admin\CategoriesController@addCategory')->name('categories.add');
+		Route::post('/categories/add', 'Admin\CategoriesController@addRequestCategory');
 		Route::get('/categories/edit/[id]', 'Admin\CategoriesController@editCategory')
 				->where('id','\d+')
 				->name('categories.edit');

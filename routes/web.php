@@ -37,6 +37,7 @@ Route::group(['meddleware' => 'auth'], function(){
 	//articles
 		Route::get('/articles', 'Admin\ArticlesController@index')->name('articles');
 		Route::get('/articles/add', 'Admin\ArticlesController@addArticle')->name('articles.add');
+		Route::post('/articles/add', 'Admin\ArticlesController@addRequestArticle');
 		Route::get('/articles/edit/{id}', 'Admin\ArticlesController@editArticle')->where('id', '\d+')->name('articles.edit'); 
 		Route::delete('/articles/delete', 'Admin\Admin\ArticlesController@deleteArticles')->name('articles.delete');
 	});

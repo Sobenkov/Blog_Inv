@@ -47,7 +47,7 @@ class CategoriesController extends Controller
     	$category = Category::find($id);
     	return view('admin.categories.edit', ['category' => $category]);
     }
-   public function editRequestCategory(Request $request, int $id)
+   public function editRequestCategory(int $id)
    {
    	try{
    		$this->validate($request, [

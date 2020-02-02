@@ -7,7 +7,8 @@
 				{!! csrf_field() !!}
 				<p>Выбор категории (ий):<br><select name="categories[]" class="form-control" multiple>
 					@foreach($categories as $category)
-						<option value="{{$category->id}}">
+						<option value="{{$category->id}}"
+							@if(in_array($category->id, $arrCategories)) selected @endif> 
 							{{$category->title}}
 						</option>
 					@endforeach

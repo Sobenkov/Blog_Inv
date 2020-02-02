@@ -64,9 +64,17 @@ class ArticlesController extends Controller
 		$categories =$objCategory->get();
 		$objArticle = Article::find($id);
 
+
+		$mainCategories = $objArticle->categories;
+		$arrCategories = [];
+		foreach ($mainCategories as $category){
+			$arrCategories[] = $category->id;
+		}
+
 		return view('admin.articles.edit', [
 			'categories' => $categories,
-			'article' => $objArticle
+			'article' => $objArticle,
+			'arrCategories' => $arrCategories
 		]);
 	}
 	public function editRequestArticle(int $id, ArticleRequest $request)
@@ -78,6 +86,20 @@ class ArticlesController extends Controller
 		$objArticle->author = $request->input('author');
 
 		if($objArticle->save ()){
+				//Обновляем привязку к категориям
+				$objArticleCategory = new CategoryArticle();
+				$objArticleCategory->where('article_id', $objArticle->id)->delete();
+
+				$arrCategories = $request->input('categories');
+
+				if(is_array($arrCategories)){
+					foreach ($arrCategories as $category) {
+						$objArticleCategory->create([
+							'category_id' => $category,
+							'article_id' => $objArticle->id
+						]);
+					}
+				}
 	   		return redirect()->route('articles')->with('success', 'Статья успешно изменена');
 	   	}
 	   	return redirect()->route('articles')->with('error', 'Не удалось изменить статью');

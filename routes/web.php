@@ -1,8 +1,9 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ArticlesController@index');
+
+//blog
+Route::get('/article/{id}/{slug}.html', 'ArticlesController@showArticle')->name('blog.show');
 
 Route::group(['meddleware' => 'guest'], function(){
 	Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');

@@ -60,23 +60,23 @@ class CategoriesController extends Controller
 	   	$objCategory->description = $request->input('description');
 
 	   	if($objCategory->save ()){
-	   		return back()->with('success', 'Категория успешно изменена');
+	   		return redirect()->route('category')->with('success', 'Категория успешно изменена');
 	   	}
-	   	return back()->with('error', 'Не удалось изменить категорию');
+	   	return redirect()->route('category')->with('error', 'Не удалось изменить категорию');
 
 	   }catch(ValidationException $e) {
 	   	\Log::error($e->getMessage());
-	   	return back()->with('error', $e->getMessage());
+	   	return redirect()->route('category')->with('error', $e->getMessage());
 	   }
    }
 
    public function deleteCategory(Request $request)
     {
-    	if($request->ajax()){
-    		$id = (int) $request-> input ('id');
+    	if($request->ajax()) {
+    		$id = (int)$request-> input ('id');
     		$objCategory = new Category();
 
-    		$objCategory->where('id, $id')->delete();
+    		$objCategory->where('id', $id)->delete();
 
     		echo "success";
     	}

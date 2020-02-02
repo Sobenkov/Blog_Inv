@@ -32,13 +32,13 @@
 	<script>
 		$(function(){
 			$(".delete").on('click', function (){
-				if(confirm("Вы действительно хотите удалить запись?")) {
+				if(confirm("Вы действительно хотите удалить статью?")) {
 					let id = $(this).attr("rel");
 					$.ajax({
 						type: "DELETE",
 						url: "{!! route ('articles.delete')!!}",
 						data: {_token: "{{csrf_token()}}", id:id},
-						complete: function(){
+						complete: function() {
 							alert("Статья удалена");
 							location.reload();
 						}

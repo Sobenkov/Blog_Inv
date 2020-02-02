@@ -60,11 +60,38 @@ class ArticlesController extends Controller
 
 	public function editArticle(int $id)
 	{
+		$objCategory = new Category();
+		$categories =$objCategory->get();
+		$objArticle = Article::find($id);
+
+		return view('admin.articles.edit', [
+			'categories' => $categories,
+			'article' => $objArticle
+		]);
+	}
+	public function editRequestArticle(int $id, ArticleRequest $request)
+	{
+		$objArticle = Article::find($id);
+		$objArticle->title = $request->input('title');
+		$objArticle->short_text = $request->input('short_text');
+		$objArticle->full_text = $request->input('full_text');
+		$objArticle->author = $request->input('author');
+
+		if($objArticle->save ()){
+	   		return redirect()->route('articles')->with('success', 'Статья успешно изменена');
+	   	}
+	   	return redirect()->route('articles')->with('error', 'Не удалось изменить статью');
 
 	}
-
 	public function deleteArticle(Request $request)
 	{
+		if($request->ajax()) {
+    		$id = (int)$request-> input ('id');
+    		$objArticle = new Article();
 
+    		$objArticle->where('id', $id)->delete();
+
+    		echo "success";
+    	}
 	}
 }

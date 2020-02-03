@@ -105,9 +105,10 @@ class ArticlesController extends Controller
 	   	return redirect()->route('articles')->with('error', 'Не удалось изменить статью');
 
 	}
+
 	public function deleteArticle(Request $request)
-	{
-		if($request->ajax()) {
+    {
+    	if($request->ajax()) {
     		$id = (int)$request-> input ('id');
     		$objArticle = new Article();
 
@@ -115,5 +116,5 @@ class ArticlesController extends Controller
 
     		echo "success";
     	}
-	}
+    }
 }

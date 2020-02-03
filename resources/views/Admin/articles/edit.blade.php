@@ -15,8 +15,8 @@
 				</select></p>
 				<p>Название статьи:<br><input type="text" name="title" value="{{$article->title}}" class="form-control"></p>
 				<p>Автор:<br><input type="text"name="author" value="{{$article->author}}" class="form-control"></p>
-				<p>Короткий текст:<br><textarea name="short_text" class="form-control">{{!! $article->short_text !!}}</textarea></p>
-				<p>Полный текст:<br><textarea name="full_text" class="form-control">{{!! $article->full_text !!}}</textarea></p>
+				<p>Короткий текст:<br><textarea name="short_text" class="form-control">{!! $article->short_text !!}</textarea></p>
+				<p>Полный текст:<br><textarea name="full_text" class="form-control">{!! $article->full_text !!}</textarea></p>
 				<button type="submit" class="btn btn-success">Редактировать</button>
 			</form>
       </main>

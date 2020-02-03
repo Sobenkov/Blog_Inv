@@ -9,8 +9,13 @@ Class ArticlesController extends Controller
 	public function index()
 	{
 		$objArticle = new Article();
-		$articles = $objArticle->orderBy('id', 'desc')->paginate(10);
+		$articles = $objArticle->orderBy('id', 'desc')->paginate(5);
 
 		return view('index', ['articles' => $articles]);
+	}
+	public function showArticle(int $id, $slug)
+	{
+		$objArticle= Article::find($id);
+		return view('show_article', ['article' => $objArticle]);
 	}
 }

@@ -44,6 +44,6 @@ Route::group(['meddleware' => 'auth'], function(){
 				->name('articles.edit'); 
 		Route::post('/articles/edit/{id}', 'Admin\ArticlesController@editRequestArticle')
 				->where('id','\d+');
-		Route::delete('/articles/delete', 'Admin\Admin\ArticlesController@deleteArticles')->name('articles.delete');
+		Route::delete('/articles/delete', 'Admin\ArticlesController@deleteArticle')->name('articles.delete');
 	});
 });

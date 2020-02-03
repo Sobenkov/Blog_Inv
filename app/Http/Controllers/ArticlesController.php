@@ -16,6 +16,7 @@ Class ArticlesController extends Controller
 	public function showArticle(int $id, $slug)
 	{
 		$objArticle= Article::find($id);
-		return view('show_article', ['article' => $objArticle]);
+		$comments = $objArticle->comments()->paginate(5);
+		return view('show_article', ['article' => $objArticle, 'comments' => $comments]);
 	}
 }

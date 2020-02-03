@@ -50,5 +50,10 @@ Route::group(['meddleware' => 'auth'], function(){
 		Route::delete('/articles/delete', 'Admin\ArticlesController@deleteArticle')->name('articles.delete');
 	//users	
 		Route::get('/users', 'Admin\UsersController@index')->name('users');
+
+		Route::get('/comments', 'Admin\CommentsController@index')->name('comments');
+		Route::get('/comments/accepted/{id}', 'Admin\CommentsController@acceptComment') 
+				->where('id','\d+')
+				->name('comment.accepted');
 	});
 });

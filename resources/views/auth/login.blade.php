@@ -27,7 +27,9 @@
           <input type="checkbox" value="1" name="remember"> Запомнить
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+      <button class="btn btn-lg btn-dark btn-block" type="submit">Войти</button>
+      <br>
+      <a href="/">Назад</a>
     </form>
   </div>
 </body>

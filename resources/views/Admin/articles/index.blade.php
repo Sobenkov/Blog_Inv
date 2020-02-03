@@ -2,6 +2,7 @@
 @section('content')
 
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+			<br>
 			<h1>Список статей</h1>
 			<br>
 			<a href="{!! route('articles.add') !!}" class="btn btn-info">Добавить статью</a>

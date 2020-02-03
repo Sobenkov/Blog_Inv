@@ -38,25 +38,25 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{!! route('categories')!!}">
+            <a class="nav-link" href="{!! route('categories') !!}">
               <span data-feather="file"></span>
               Категории
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{!! route('articles')!!}">
+            <a class="nav-link" href="{!! route('articles') !!}">
               <span data-feather="shopping-cart"></span>
               Статьи
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{!! route('users')!!}">
+            <a class="nav-link" href="{!! route('users') !!}">
               <span data-feather="users"></span>
               Пользователи
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{!! route('comments') !!}">
               <span data-feather="bar-chart-2"></span>
               Комментарии
             </a>

@@ -24,11 +24,10 @@
       <label for="inputPassword" class="sr-only">Пароль</label>
       <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Пароль" required>
       <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="1" name="remember"> Запомнить
-        </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Регистрация</button>
+      <button class="btn btn-lg btn-dark btn-block" type="submit">Регистрация</button>
+      <br>
+      <a href="/">Назад</a>
     </form>
   </div>
 </body>

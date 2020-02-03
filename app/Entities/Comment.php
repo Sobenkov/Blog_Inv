@@ -13,7 +13,7 @@ class Comment extends Model
     	'article_id',
     	'user_id',
     	'status',
-    	'commet'
+    	'comment'
     ];
     protected $dates = [
     	'created_at',

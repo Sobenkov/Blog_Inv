@@ -52,7 +52,7 @@ class RegisterController extends Controller
         
         $email = $request->input('email');
         $password = $request->input('password');
-        $isAuth = $request->has('remember')? true :false;
+        $isAuth = $request->has('remember')? true :true;
         $objUser = $this->create(['email' => $email, 'password' => $password]);
         if(!($objUser instanceof User)){
                 // throw new \Exception("Can't create object");

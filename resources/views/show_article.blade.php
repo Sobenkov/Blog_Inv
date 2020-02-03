@@ -26,6 +26,17 @@
 				{!! $article->full_text !!}
         </div>
       </div>
+      @if(\Auth::check())
+        <form action="{!! route('comments.add')!!}" method="post" accept-charset="utf-8">
+          {!! csrf_field() !!}
+          <p>Комментарий:<br>
+            <textarea name="comment" class="form-control"></textarea>
+          </p>
+          <br>
+          <button type="submit" class="btn btn-success">Добавить комментарий</button>
+        </form>
+        @endif
     </div>
   </article>
+
 @stop

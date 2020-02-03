@@ -20,6 +20,9 @@ Route::group(['meddleware' => 'auth'], function(){
 	}) ->name('logout');
 	Route::get('/my/account', 'AccountController@index')->name('account');
 
+	//comments
+	Route::post('/comments/add', 'CommentsController@addComment')->name('comments.add');
+
 	//admin
 	Route::group(['meddleware' => 'admin', 'prefix' => 'admin'], function(){
 		Route::get('/', 'Admin\AccountController@index')->name('admin');
@@ -45,5 +48,7 @@ Route::group(['meddleware' => 'auth'], function(){
 		Route::post('/articles/edit/{id}', 'Admin\ArticlesController@editRequestArticle')
 				->where('id','\d+');
 		Route::delete('/articles/delete', 'Admin\ArticlesController@deleteArticle')->name('articles.delete');
+	//users	
+		Route::get('/users', 'Admin\UsersController@index')->name('users');
 	});
 });

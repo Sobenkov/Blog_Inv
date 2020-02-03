@@ -39,7 +39,19 @@
             <a class="nav-link" href="/">Главная</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/">Категории</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/login">Личный кабинет</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="/register">Регистрация</a>
           </li>
 
         </ul>
